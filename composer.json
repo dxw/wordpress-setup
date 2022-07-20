@@ -5,5 +5,6 @@
         "psr-4": {
             "Dxw\\WordPressSetup\\": "src/"
         }
-    }
+    },
+    "license": "MIT"
 }
