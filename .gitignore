@@ -64,3 +64,4 @@ vendor/
 tmp/
 ## Build artifacts
 /composer.lock
+.php-cs-fixer.cache

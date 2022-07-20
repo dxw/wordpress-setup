@@ -10,5 +10,9 @@
     "require": {
         "php": "^7.4",
         "fakerphp/faker": "^1.19"
+    },
+    "require-dev": {
+        "kahlan/kahlan": "^5.2",
+        "dxw/php-cs-fixer-config": "^2.0"
     }
 }
