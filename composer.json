@@ -1,0 +1,9 @@
+{
+    "name": "dxw/wordpress-setup",
+    "description": "Helpers for automating your WordPress setup",
+    "autoload": {
+        "psr-4": {
+            "Dxw\\WordPressSetup\\": "src/"
+        }
+    }
+}
