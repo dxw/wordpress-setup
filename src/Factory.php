@@ -9,7 +9,8 @@ class Factory
         $faker = \Faker\Factory::create();
         $setup = new Setup([
             'post' => new Modules\Post($faker),
-            'menu' => new Modules\Menu()
+            'menu' => new Modules\Menu(),
+            'media' => new Modules\Media()
         ]);
         return $setup;
     }

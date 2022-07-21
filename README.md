@@ -32,6 +32,20 @@ Modules and their available methods are documented in detail below.
 
 ## Modules
 
+### Media
+
+#### `upload`
+
+Upload a file to the media library, and create the appropriate attachment metadata.
+
+Takes either a path to the file, or a URL:
+
+```
+$setup->media->upload(string $pathOrUrlToFile);
+```
+
+Returns the ID of the created attachment.
+
 ### Menu
 
 #### `addCustomLink`
@@ -45,7 +59,7 @@ $setup->menu->addCustomLink(int $menuId, string $menuItemTitle, string $menuItem
 Can also be passed the ID of the menu item this should be a child of as the final argument:
 
 ```
-$setup->menu->addCustomLink((int $menuId, string $menuItemTitle, string $menuItemUrl, int $parentMenuItemId);
+$setup->menu->addCustomLink(int $menuId, string $menuItemTitle, string $menuItemUrl, int $parentMenuItemId);
 ```
 
 Returns the ID of the menu item that has been created.
