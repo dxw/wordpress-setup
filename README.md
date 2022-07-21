@@ -36,19 +36,36 @@ Modules and their available methods are documented in detail below.
 
 #### `addCustomLink`
 
-Adds a custom link item to a menu, where the first argument is the ID of the menu to assign it to:
+Add a custom link item to a menu, where the first argument is the ID of the menu to assign it to:
 
 ```
-$setup->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url');
+$setup->menu->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url');
 ```
 
 Can also be passed the ID of the menu item this should be a child of as the final argument:
 
 ```
-$setup->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url', 456);
+$setup->menu->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url', 456);
 ```
 
 Returns the ID of the menu item that has been created.
+
+#### `addTaxonomyLink`
+
+Add a taxonomy archive link to a menu.
+
+```
+$setup->menu->addTaxonomyLink(int $menuId, int $termid, int $taxonomyName)
+```
+
+Can also optionally be passed the ID of the menu item this should be a child of:
+
+```
+$setup->menu->addTaxonomyLink(int $menuId, int $termid, int $taxonomyName, int $parentMenuItemId)
+```
+
+Returns the ID of the menu item that has been created.
+
 
 #### `createAndAssignLocation`
 

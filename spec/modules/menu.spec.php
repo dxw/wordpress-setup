@@ -78,4 +78,47 @@ describe(\Dxw\WordPressSetup\Modules\Menu::class, function () {
             });
         });
     });
+
+    describe('->addTaxonomyLink()', function () {
+        context('no parent Id is provided', function () {
+            it('adds a top-level menu item and returns the menu item Id', function () {
+                $menuId = 123;
+                $termId = 456;
+                $taxonomyName = 'category';
+                allow('wp_update_nav_menu_item')->toBeCalled()->andReturn(789);
+                expect('wp_update_nav_menu_item')->toBeCalled()->once()->with($menuId, 0, [
+                    'menu-item-type' => 'taxonomy',
+                    'menu-item-object' => $taxonomyName,
+                    'menu-item-object-id' => $termId,
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => 0
+                ]);
+
+                $result = $this->menu->addTaxonomyLink($menuId, $termId, $taxonomyName);
+
+                expect($result)->toEqual(789);
+            });
+        });
+
+        context('a parent Id is provided', function () {
+            it('adds a menu item with that Id as the parent and returns the menu item Id', function () {
+                $menuId = 123;
+                $termId = 456;
+                $parentId = 333;
+                $taxonomyName = 'category';
+                allow('wp_update_nav_menu_item')->toBeCalled()->andReturn(789);
+                expect('wp_update_nav_menu_item')->toBeCalled()->once()->with($menuId, 0, [
+                    'menu-item-type' => 'taxonomy',
+                    'menu-item-object' => $taxonomyName,
+                    'menu-item-object-id' => $termId,
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => $parentId
+                ]);
+
+                $result = $this->menu->addTaxonomyLink($menuId, $termId, $taxonomyName, $parentId);
+
+                expect($result)->toEqual(789);
+            });
+        });
+    });
 });

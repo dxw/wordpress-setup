@@ -23,4 +23,15 @@ class Menu
             'menu-item-parent-id' => $parentId
         ]);
     }
+
+    public function addTaxonomyLink(int $menuId, int $termId, string $taxonomyName, int $parentId = 0)
+    {
+        return wp_update_nav_menu_item($menuId, 0, [
+            'menu-item-type' => 'taxonomy',
+            'menu-item-object' => $taxonomyName,
+            'menu-item-object-id' => $termId,
+            'menu-item-status' => 'publish',
+            'menu-item-parent-id' => $parentId
+        ]);
+    }
 }
