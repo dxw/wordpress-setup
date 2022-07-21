@@ -8,7 +8,8 @@ class Factory
     {
         $faker = \Faker\Factory::create();
         $post = new Modules\Post($faker);
-        $setup = new Setup($post);
+        $menu = new Modules\Menu();
+        $setup = new Setup($post, $menu);
         return $setup;
     }
 }
