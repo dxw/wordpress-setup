@@ -58,6 +58,8 @@ Create a new menu and assign it to a theme location by name:
 $setup->menu->createAndAssignLocation('the-menu-name', 'the-menu-location');
 ```
 
+Returns the ID of the new menu.
+
 ### Post
 
 #### `create`
@@ -71,3 +73,5 @@ $setup->post->create();
 By default, Faker will be used to generate dummy title and content, the post type will be `post` and the post status will be `publish`.
 
 You can override any of these defaults (or add additional parameters) using the same array of args you would pass to `wp_insert_post`.
+
+Returns the ID of the new post.
