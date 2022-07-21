@@ -7,9 +7,10 @@ class Factory
     public static function create()
     {
         $faker = \Faker\Factory::create();
-        $post = new Modules\Post($faker);
-        $menu = new Modules\Menu();
-        $setup = new Setup($post, $menu);
+        $setup = new Setup([
+            'post' => new Modules\Post($faker),
+            'menu' => new Modules\Menu()
+        ]);
         return $setup;
     }
 }

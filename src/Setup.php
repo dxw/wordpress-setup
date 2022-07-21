@@ -4,12 +4,17 @@ namespace Dxw\WordPressSetup;
 
 class Setup
 {
-    public $post;
-    public $menu;
+    private $modules = [];
 
-    public function __construct($post, $menu)
+    public function __construct(array $modules)
     {
-        $this->post = $post;
-        $this->menu = $menu;
+        foreach ($modules as $name => $module) {
+            $this->modules[$name] = $module;
+        }
+    }
+
+    public function __get($name)
+    {
+        return $this->modules[$name];
     }
 }
