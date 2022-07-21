@@ -39,13 +39,13 @@ Modules and their available methods are documented in detail below.
 Add a custom link item to a menu, where the first argument is the ID of the menu to assign it to:
 
 ```
-$setup->menu->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url');
+$setup->menu->addCustomLink(int $menuId, string $menuItemTitle, string $menuItemUrl);
 ```
 
 Can also be passed the ID of the menu item this should be a child of as the final argument:
 
 ```
-$setup->menu->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url', 456);
+$setup->menu->addCustomLink((int $menuId, string $menuItemTitle, string $menuItemUrl, int $parentMenuItemId);
 ```
 
 Returns the ID of the menu item that has been created.
@@ -72,7 +72,7 @@ Returns the ID of the menu item that has been created.
 Create a new menu and assign it to a theme location by name:
 
 ```
-$setup->menu->createAndAssignLocation('the-menu-name', 'the-menu-location');
+$setup->menu->createAndAssignLocation(string $menuName, string $menuLocation);
 ```
 
 Returns the ID of the new menu.
