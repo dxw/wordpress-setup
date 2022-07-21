@@ -34,6 +34,22 @@ Modules and their available methods are documented in detail below.
 
 ### Menu
 
+#### `addCustomLink`
+
+Adds a custom link item to a menu, where the first argument is the ID of the menu to assign it to:
+
+```
+$setup->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url');
+```
+
+Can also be passed the ID of the menu item this should be a child of as the final argument:
+
+```
+$setup->addCustomLink(123, 'the-menu-item-title', 'the-menu-item-url', 456);
+```
+
+Returns the ID of the menu item that has been created.
+
 #### `createAndAssignLocation`
 
 Create a new menu and assign it to a theme location by name:

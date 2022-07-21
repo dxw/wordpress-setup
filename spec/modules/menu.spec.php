@@ -27,4 +27,55 @@ describe(\Dxw\WordPressSetup\Modules\Menu::class, function () {
             expect($result)->toEqual($menuId);
         });
     });
+
+    describe('->addCustomLink()', function () {
+        context('no parent Id is given', function () {
+            it('updates the nav menu with a new custom link item at the top level, then returns the menu item id', function () {
+                $menuId = 123;
+                $itemTitle = 'My new link';
+                $itemUrl = 'https://dxw.com';
+                allow('wp_update_nav_menu_item')->toBeCalled()->andReturn(789);
+                expect('wp_update_nav_menu_item')->toBeCalled()->once()->with(
+                    123,
+                    0,
+                    [
+                        'menu-item-type' => 'custom',
+                        'menu-item-status' => 'publish',
+                        'menu-item-url' => $itemUrl,
+                        'menu-item-title' => $itemTitle,
+                        'menu-item-parent-id' => 0
+                    ]
+                );
+    
+                $result = $this->menu->addCustomLink($menuId, $itemTitle, $itemUrl);
+    
+                expect($result)->toEqual(789);
+            });
+        });
+
+        context('a parent Id is given', function () {
+            it('updates the nav menu with a new custom link item under the specified parent, then returns the menu item id', function () {
+                $menuId = 123;
+                $itemTitle = 'My new link';
+                $itemUrl = 'https://dxw.com';
+                $parentId = 456;
+                allow('wp_update_nav_menu_item')->toBeCalled()->andReturn(789);
+                expect('wp_update_nav_menu_item')->toBeCalled()->once()->with(
+                    123,
+                    0,
+                    [
+                        'menu-item-type' => 'custom',
+                        'menu-item-status' => 'publish',
+                        'menu-item-url' => $itemUrl,
+                        'menu-item-title' => $itemTitle,
+                        'menu-item-parent-id' => 456
+                    ]
+                );
+    
+                $result = $this->menu->addCustomLink($menuId, $itemTitle, $itemUrl, $parentId);
+    
+                expect($result)->toEqual(789);
+            });
+        });
+    });
 });
