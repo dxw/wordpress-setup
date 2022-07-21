@@ -11,7 +11,7 @@ class Post
         $this->faker = $faker;
     }
 
-    public function create($args = [])
+    public function create(array $args = [])
     {
         $defaults = [
             'post_status' => 'publish',

@@ -4,7 +4,7 @@ namespace Dxw\WordPressSetup\Modules;
 
 class Menu
 {
-    public function createAndAssignLocation($menuName, $location)
+    public function createAndAssignLocation(string $menuName, string $location)
     {
         $menuId = wp_create_nav_menu($menuName);
         $locations = get_theme_mod('nav_menu_locations');
@@ -13,7 +13,7 @@ class Menu
         return $menuId;
     }
 
-    public function addCustomLink($menuId, $itemTitle, $itemUrl, $parentId = 0)
+    public function addCustomLink(int $menuId, string $itemTitle, string $itemUrl, int $parentId = 0)
     {
         return wp_update_nav_menu_item($menuId, 0, [
             'menu-item-type' => 'custom',
