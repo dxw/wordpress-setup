@@ -10,7 +10,8 @@ class Factory
         $setup = new Setup([
             'post' => new Modules\Post($faker),
             'menu' => new Modules\Menu(),
-            'media' => new Modules\Media()
+            'media' => new Modules\Media(),
+            'plugin' => new Modules\Plugin()
         ]);
         return $setup;
     }

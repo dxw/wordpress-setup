@@ -91,6 +91,16 @@ $setup->menu->createAndAssignLocation(string $menuName, string $menuLocation);
 
 Returns the ID of the new menu.
 
+### Plugin
+
+#### `activate`
+
+Activate a plugin by its slug:
+
+```
+$setup->plugin->activate(string $pluginSlug)
+```
+
 ### Post
 
 #### `create`
