@@ -8,12 +8,11 @@
     },
     "license": "MIT",
     "require": {
-        "php": "^7.4",
-        "fakerphp/faker": "^1.19",
+        "fakerphp/faker": "^1.23",
         "wp-cli/wp-cli-bundle": "^2.6"
     },
     "require-dev": {
         "kahlan/kahlan": "^5.2",
-        "dxw/php-cs-fixer-config": "^2.0"
+        "dxw/php-cs-fixer-config": "^2.1"
     }
 }
